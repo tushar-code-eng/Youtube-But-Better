@@ -3,17 +3,18 @@ import "./Cards.scss";
 // import thumbnail from "../photos/no-image.jpg";
 // import channel from "../photos/channelImg.jpg";
 import { Link } from "react-router-dom";
-import {format} from 'timeago.js'
+import { format } from "timeago.js";
 import axios from "axios";
 
-const Cards = ({video}) => {
-
+const Cards = ({ video }) => {
   const [channel, setChannel] = useState([]);
 
   useEffect(() => {
     try {
       const fetchChannel = async () => {
-        const res = await axios.get(`http://localhost:3000/api/users/find/${video.userId}`);
+        const res = await axios.get(
+          `http://localhost:3000/api/users/find/${video.userId}`
+        );
         setChannel(res.data);
       };
       fetchChannel();
@@ -23,15 +24,19 @@ const Cards = ({video}) => {
   }, [video.userId]);
 
   return (
-    <Link to={`/video/${video._id}`} style={{textDecoration:"none"}}>
+    <Link to={`/video/${video._id}`} style={{ textDecoration: "none" }}>
       <div className="cardsContainer">
-        <img className="thumbnailImg" src={video.imgUrl} alt="" />
+        <div className="imageContainer">
+          <img className="thumbnailImg" src={video.imgUrl} alt="" />
+        </div>
         <div className="details">
           <img src={channel.img} alt="" className="channelImg" />
           <div className="texts">
             <h1 className="title">{video.title}</h1>
             <p className="channelName">{channel.name}</p>
-            <p className="views">{video.views} views | {format(video.createdAt)}</p>
+            <p className="views">
+              {video.views} views | {format(video.createdAt)}
+            </p>
           </div>
         </div>
       </div>
