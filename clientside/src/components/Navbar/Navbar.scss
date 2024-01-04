@@ -18,17 +18,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding:5px;
-    border:1px solid #2e2e2e;
+    padding: 5px;
+    border: 1px solid #2e2e2e;
     border-radius: 3px;
-    #search-input{
+    #search-input {
       border: 0 solid #202020;
       background: transparent;
       width: 90%;
       overflow: visible;
       outline: none;
     }
-    .searchbutton{
+    .searchbutton {
       background-color: transparent;
       border: none;
       cursor: pointer;
@@ -36,22 +36,30 @@
     }
   }
 
-  .currentusercontainer{
+  .currentusercontainer {
     display: flex;
     align-items: center;
-    gap:10px;
+    gap: 10px;
     font-weight: 500;
 
-    button{
+    button {
       border: none;
       cursor: pointer;
     }
 
-    .avatar{
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: #999;
+    .moreinfo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+
+      .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #999;
+      }
     }
   }
 
@@ -68,8 +76,6 @@
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    margin-right:1em ;
+    margin-right: 1em;
   }
-
-
 }

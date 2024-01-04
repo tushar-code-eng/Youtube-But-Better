@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import "./SignIn.scss";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -9,8 +9,11 @@ import {
 } from "../../../redux/userSlice";
 import { auth, provider } from "../../../firebase";
 import { signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
+  const navigate = useNavigate()
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +28,8 @@ const SignIn = () => {
         { name, password },
         { withCredentials: true }
       );
-      dispatch(loginSucces(res.data)); //--------------------we passed a payload here
+      dispatch(loginSucces(res.data)) //--------------------we passed a payload here
+      navigate(`/`)
     } catch (err) {
       dispatch(loginFailure());
     }

@@ -3,30 +3,53 @@ import "./Navbar.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Uploadvideos from "../uploadVideos/uploadVideos.jsx";
+import Moreinfo from '../MoreInfo/Moreinfo.jsx'
 
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 
 import SensorOccupiedIcon from "@mui/icons-material/SensorOccupied";
 
 const Navbar = () => {
-  const navigate =useNavigate()
+  const navigate = useNavigate();
   const currentUser = useSelector((state) => state.user.currentUser); // ---------------redux
 
-  const [open, setOpen] = useState(false)
-  const [q,setQ] = useState("")
+  const [moreinfo,setMoreinfo] = useState(false)
+  const [open, setOpen] = useState(false);
+  const [q, setQ] = useState("")
 
   return (
     <>
       <div className="navbar">
         <div className="searchcontainer">
-          <input type="text" id="search-input" placeholder="Search..." onChange={(e)=> setQ(e.target.value)}/>
-          <button className="searchbutton" onClick={()=>navigate(`/search?q=${q}`)}>Search</button>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search..."
+            onChange={(e) => setQ(e.target.value)}
+          />
+          <button
+            className="searchbutton"
+            onClick={() => navigate(`/search?q=${q}`)}
+          >
+            Search
+          </button>
         </div>
         {currentUser ? (
           <div className="currentusercontainer">
-            <button onClick={()=>{setOpen(true)}}><VideoCallIcon /></button>
-            <div className="avatar"></div>
-            <div className="username">{currentUser.name}</div>
+            <button
+              onClick={() => {
+                setOpen(true);
+              }}
+            >
+              <VideoCallIcon />
+            </button>
+            <div className="moreinfo" onClick={()=>{setMoreinfo(!moreinfo)}}>
+              <div className="avatar">
+                <img src={currentUser.img} alt="" />
+              </div>
+              <div className="username">{currentUser.name}</div>
+            </div>
+            { moreinfo && <Moreinfo  />}
           </div>
         ) : (
           <Link to="signin" style={{ textDecoration: "none" }}>
