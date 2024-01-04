@@ -1,0 +1,28 @@
+.Commentsscontainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5em;
+    .NumberOfComments{
+        font-weight: 600;
+    }
+    .NewComment{
+        margin-top: 1em;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        img{
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+        }
+        input{
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid white;
+            outline: none;
+        }
+        
+    }
+}

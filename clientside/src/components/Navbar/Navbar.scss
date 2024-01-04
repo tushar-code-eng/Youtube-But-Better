@@ -1,0 +1,75 @@
+.navbar {
+  height: 8vh;
+  width: 84.8vw;
+  background-color: #202020;
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  top: 0;
+  position: relative, sticky;
+
+  .searchcontainer {
+    width: 40%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:5px;
+    border:1px solid #2e2e2e;
+    border-radius: 3px;
+    #search-input{
+      border: 0 solid #202020;
+      background: transparent;
+      width: 90%;
+      overflow: visible;
+      outline: none;
+    }
+    .searchbutton{
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: rgb(161, 147, 147);
+    }
+  }
+
+  .currentusercontainer{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    font-weight: 500;
+
+    button{
+      border: none;
+      cursor: pointer;
+    }
+
+    .avatar{
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #999;
+    }
+  }
+
+  .signbtn {
+    width: 6vw;
+    height: 5vh;
+    background-color: transparent;
+    border: 2px solid blue;
+    color: white;
+    border-radius: 2px;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-right:1em ;
+  }
+
+
+}
