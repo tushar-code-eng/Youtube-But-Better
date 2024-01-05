@@ -1,26 +1,42 @@
 import React, { useState } from "react";
 import "./Navbar.scss";
+import ytic from "../photos/youtubeicon.png";
+
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Uploadvideos from "../uploadVideos/uploadVideos.jsx";
-import Moreinfo from '../MoreInfo/Moreinfo.jsx'
-import SearchIcon from '@mui/icons-material/Search';
+import Moreinfo from "../MoreInfo/Moreinfo.jsx";
+import SearchIcon from "@mui/icons-material/Search";
+import MenuIcon from "@mui/icons-material/Menu";
 
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 
 import SensorOccupiedIcon from "@mui/icons-material/SensorOccupied";
 
-const Navbar = () => {
+const Navbar = ({openSidebar,setOpenSidebar}) => {
   const navigate = useNavigate();
   const currentUser = useSelector((state) => state.user.currentUser); // ---------------redux
 
-  const [moreinfo,setMoreinfo] = useState(false)
+  const [moreinfo, setMoreinfo] = useState(false);
   const [open, setOpen] = useState(false);
-  const [q, setQ] = useState("")
+  const [q, setQ] = useState("");
+
+  
 
   return (
     <>
       <div className="navbar">
+        <div className="leftside">
+          <div className="menu" onClick={()=>{setOpenSidebar(!openSidebar)}}>
+          <MenuIcon style={{backgroundColor:"transparent"}}/>
+          </div>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <div className="logo">
+              <img src={ytic} alt="" />
+              <p>MyYouTube</p>
+            </div>
+          </Link>
+        </div>
         <div className="searchcontainer">
           <input
             type="text"
@@ -44,13 +60,18 @@ const Navbar = () => {
             >
               <VideoCallIcon />
             </button>
-            <div className="moreinfo" onClick={()=>{setMoreinfo(!moreinfo)}}>
+            <div
+              className="moreinfo"
+              onClick={() => {
+                setMoreinfo(!moreinfo);
+              }}
+            >
               <div className="avatar">
                 <img src={currentUser.img} alt="" />
               </div>
               <div className="username">{currentUser.name}</div>
             </div>
-            { moreinfo && <Moreinfo  />}
+            {moreinfo && <Moreinfo />}
           </div>
         ) : (
           <Link to="signin" style={{ textDecoration: "none" }}>

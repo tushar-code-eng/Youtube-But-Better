@@ -24,7 +24,7 @@ const Cards = ({ video }) => {
   }, [video.userId]);
 
   return (
-    <Link to={`/video/${video._id}`} style={{ textDecoration: "none" }}>
+    <Link className="linki" to={`/video/${video._id}`} style={{ textDecoration: "none" }}>
       <div className="cardsContainer">
         <div className="imageContainer">
           <img className="thumbnailImg" src={video.imgUrl} alt="" />

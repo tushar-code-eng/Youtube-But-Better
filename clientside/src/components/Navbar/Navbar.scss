@@ -1,26 +1,61 @@
 .navbar {
   height: 75px;
-  width: 84.8vw;
+  width: 100%;
   background-color: #161515;
   position: sticky;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   top: 0;
-  position: relative, sticky;
+
+  .leftside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    gap: 10px;
+    margin-left: 5px;
+    .menu{
+      cursor: pointer;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu:hover{
+      background-color: #404040;
+    }
+
+    .logo {
+      padding: 4px;
+      display: flex;
+      letter-spacing: -0.5px;
+      justify-content: left;
+      align-items: center;
+      color: white;
+      cursor: pointer;
+      gap: 5px;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+      p {
+        font-size: 1.2em;
+        font-weight: 600;
+      }
+    }
+  }
 
   .searchcontainer {
     width: 40%;
     height: 35%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    margin-top: -4px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+    padding-left: 18px;
     border: 1px solid #454343;
     border-radius: 25px;
     #search-input {
@@ -44,6 +79,7 @@
     align-items: center;
     gap: 10px;
     font-weight: 500;
+    margin-right: 10px;
 
     button {
       border: none;
@@ -67,8 +103,8 @@
   }
 
   .signbtn {
-    width: 6vw;
-    height: 5vh;
+    width: 100px;
+    height: 50px;
     background-color: transparent;
     border: 2px solid blue;
     color: white;

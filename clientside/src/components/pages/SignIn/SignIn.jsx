@@ -34,6 +34,20 @@ const SignIn = () => {
       dispatch(loginFailure());
     }
   };
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(
+        "/api/auth/signup",
+        { name,email, password },
+        { withCredentials: true }
+      );
+      dispatch(loginSucces(res.data)) //--------------------we passed a payload here
+      navigate(`/`)
+    } catch (err) {
+      console.log(err)
+    }
+  };
 
   const signInWithGoogle = () => {
     dispatch(loginStart());
@@ -86,26 +100,26 @@ const SignIn = () => {
         <div className="form">
           <input
             type="email"
-            name=""
+            name="email"
             id=""
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="text"
-            name=""
+            name="name"
             id=""
             placeholder="UserName"
             onChange={(e) => setName(e.target.value)}
           />
           <input
             type="text"
-            name=""
+            name="password"
             id=""
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button>SignUp</button>
+          <button onClick={handleSignUp}>SignUp</button>
         </div>
       </div>
     </div>

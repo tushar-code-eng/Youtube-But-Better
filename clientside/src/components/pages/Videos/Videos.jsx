@@ -19,7 +19,7 @@ import { useLocation } from "react-router-dom";
 import { fetchSuccess } from "../../../redux/videoSlice.js";
 import Recomendations from "../../Recomendations/Recomendations.jsx";
 
-const Videos = () => {
+const Videos = ({openSidebar, setOpenSidebar}) => {
   const currentUser = useSelector((state) => state.user.currentUser);
   const currentVideo = useSelector((state) => state.video.currentVideo);
 
@@ -79,7 +79,7 @@ const Videos = () => {
   };
 
   return (
-    <div className="videoContainer">
+    <div className={ openSidebar ? 'videoContainer' : 'videoContainerChange'}>
       <div className="content">
         <div className="videoWrapper">
           <video src={currentVideo.videoUrl} controls></video>

@@ -1,6 +1,5 @@
 import React from "react";
 import "./Sidebar.scss";
-import ytic from "../photos/youtubeicon.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -21,18 +20,12 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
 import SensorOccupiedIcon from "@mui/icons-material/SensorOccupied";
 
-const Sidebar = () => {
+const Sidebar = ({openSidebar}) => {
 
   const currentUser = useSelector((state) => state.user.currentUser); // ---------------redux
 
   return (<>
-    <div className="sidebarr">
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <div className="logo">
-          <img src={ytic} alt="" />
-          <p>MyYouTube</p>
-        </div>
-      </Link>
+    {openSidebar && <div className="sidebarr">
       <Link to="/" style={{ textDecoration: "none" }}>       
       <div className="items">
         <HomeRoundedIcon style={{backgroundColor:"transparent"}} />
@@ -123,7 +116,7 @@ const Sidebar = () => {
         <SettingsBrightnessIcon style={{backgroundColor:"transparent"}} />
         Light Mode
       </div> */}
-    </div>
+    </div>}
     </>
   );
 };

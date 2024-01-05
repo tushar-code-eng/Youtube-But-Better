@@ -15,7 +15,6 @@ const Moreinfo = () => {
       const res = await axios.get(`/api/auth/signout`, {
         withCredentials: true,
       });
-      console.log(res);
     } catch (err) {
       console.log(err);
     }

@@ -1,5 +1,5 @@
 .sidebarr {
-  width: 180px;
+  width: 250px;
   height: 100vh;
   background-color: #161515;
   display: flex;
@@ -7,28 +7,7 @@
   align-items: left;
   position: sticky;
   top: 0;
-
-  .logo {
-    margin-top: 20px;
-    margin-left: 13px;
-    margin-bottom: 11px;
-    padding: 4px;
-    display: flex;
-    letter-spacing: -0.5px;
-    justify-content: left;
-    align-items: center;
-    color: white;
-    cursor: pointer;
-    gap: 5px;
-    img {
-      width: 40px;
-      height: 30px;
-    }
-    p {
-      font-size: 1.2em;
-      font-weight: 600;
-    }
-  }
+  gap: 6px;
 
   .items {
     width: 70%;
@@ -40,15 +19,17 @@
     margin-left: 13px;
     margin-right: 0.2em;
     color: white;
-    font-size: 0.9em;
+    font-size: 15px;
+    font-weight: 510;
     background-color: transparent;
+    border-radius: 10px;
   }
   .items:hover{
     background-color: #404040;
   }
 
   .divider {
-    width: 140px;
+    width: 180px;
     margin: 13px 0em;
     border: 0.5px solid #373737;
     margin-left: 1em;
