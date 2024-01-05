@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Uploadvideos from "../uploadVideos/uploadVideos.jsx";
 import Moreinfo from '../MoreInfo/Moreinfo.jsx'
+import SearchIcon from '@mui/icons-material/Search';
 
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 
@@ -31,7 +32,7 @@ const Navbar = () => {
             className="searchbutton"
             onClick={() => navigate(`/search?q=${q}`)}
           >
-            Search
+            <SearchIcon />
           </button>
         </div>
         {currentUser ? (

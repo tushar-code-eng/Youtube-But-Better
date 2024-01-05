@@ -35,19 +35,19 @@ const Sidebar = () => {
       </Link>
       <Link to="/" style={{ textDecoration: "none" }}>       
       <div className="items">
-        <HomeRoundedIcon />
+        <HomeRoundedIcon style={{backgroundColor:"transparent"}} />
         Home
       </div>
       </Link>
       <Link to="trends" style={{ textDecoration: "none" }}>
         <div className="items">
-          <ExploreIcon />
+          <ExploreIcon style={{backgroundColor:"transparent"}} />
           Explore
         </div>
       </Link>
       <Link to="subscriptions" style={{ textDecoration: "none" }}>
         <div className="items">
-          <SubscriptionsIcon />
+          <SubscriptionsIcon style={{backgroundColor:"transparent"}} />
           Subscriptions
         </div>
       </Link>
@@ -55,11 +55,11 @@ const Sidebar = () => {
       <div className="divider"></div>
 
       <div className="items">
-        <VideoLibraryIcon />
+        <VideoLibraryIcon style={{backgroundColor:"transparent"}} />
         Library
       </div>
       <div className="items">
-        <HistoryIcon />
+        <HistoryIcon style={{backgroundColor:"transparent"}} />
         History
       </div>
 
@@ -72,7 +72,7 @@ const Sidebar = () => {
         <Link to="signin" style={{ textDecoration: "none" }}>
           <button className="signbtn">
             {" "}
-            <SensorOccupiedIcon /> SignIn
+            <SensorOccupiedIcon style={{backgroundColor:"transparent"}} /> SignIn
           </button>
         </Link>
       </div>
@@ -81,48 +81,48 @@ const Sidebar = () => {
       </>}
 
       <div className="items">
-        <LibraryMusicIcon />
+        <LibraryMusicIcon style={{backgroundColor:"transparent"}} />
         Music
       </div>
       <div className="items">
-        <SportsBasketballIcon />
+        <SportsBasketballIcon style={{backgroundColor:"transparent"}} />
         Sports
       </div>
       <div className="items">
-        <SportsEsportsIcon />
+        <SportsEsportsIcon style={{backgroundColor:"transparent"}} />
         Gaming
       </div>
       <div className="items">
-        <MovieCreationIcon />
+        <MovieCreationIcon style={{backgroundColor:"transparent"}} />
         Movies
       </div>
       <div className="items">
-        <ArticleIcon />
+        <ArticleIcon style={{backgroundColor:"transparent"}} />
         News
       </div>
       <div className="items">
-        <LiveTvIcon />
+        <LiveTvIcon style={{backgroundColor:"transparent"}} />
         Live
       </div>
 
       <div className="divider"></div>
 
       <div className="items">
-        <SettingsIcon />
+        <SettingsIcon style={{backgroundColor:"transparent"}} />
         Settings
       </div>
       <div className="items">
-        <FlagIcon />
+        <FlagIcon style={{backgroundColor:"transparent"}} />
         Report
       </div>
       <div className="items">
-        <HelpOutlineIcon />
+        <HelpOutlineIcon style={{backgroundColor:"transparent"}} />
         Help
       </div>
-      <div className="items">
-        <SettingsBrightnessIcon />
+      {/* <div className="items">
+        <SettingsBrightnessIcon style={{backgroundColor:"transparent"}} />
         Light Mode
-      </div>
+      </div> */}
     </div>
     </>
   );

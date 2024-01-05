@@ -1,16 +1,25 @@
 import React from "react";
 import "./Moreinfo.scss";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { logout } from "../../redux/userSlice";
+import axios from "axios";
 
 const Moreinfo = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const handleLogout = ()=>{
-    dispatch(logout())
-  }
+  const handleLogout = async () => {
+    dispatch(logout());
+    try {
+      const res = await axios.get(`/api/auth/signout`, {
+        withCredentials: true,
+      });
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="moreInfoContainer">
       <div className="userImg">
