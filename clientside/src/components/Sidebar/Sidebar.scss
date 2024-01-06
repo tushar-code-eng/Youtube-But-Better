@@ -50,6 +50,10 @@
     align-items: center;
     gap: 10px;
     cursor: pointer;
+    border-radius: 10px;
+  }
+  .signbtn:hover{
+    background-color: #404040;
   }
 
   .desc {

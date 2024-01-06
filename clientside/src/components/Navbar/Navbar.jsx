@@ -77,7 +77,7 @@ const Navbar = ({openSidebar,setOpenSidebar}) => {
           <Link to="signin" style={{ textDecoration: "none" }}>
             <button className="signbtn">
               {" "}
-              <SensorOccupiedIcon /> SignIn
+              <SensorOccupiedIcon style={{backgroundColor:"transparent"}}/> SignIn
             </button>
           </Link>
         )}

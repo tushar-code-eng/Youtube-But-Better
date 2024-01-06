@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import "./SignIn.scss";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -11,8 +11,10 @@ import { auth, provider } from "../../../firebase";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
+import GoogleIcon from '@mui/icons-material/Google';
+
 const SignIn = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -28,8 +30,8 @@ const SignIn = () => {
         { name, password },
         { withCredentials: true }
       );
-      dispatch(loginSucces(res.data)) //--------------------we passed a payload here
-      navigate(`/`)
+      dispatch(loginSucces(res.data)); //--------------------we passed a payload here
+      navigate(`/`);
     } catch (err) {
       dispatch(loginFailure());
     }
@@ -39,13 +41,13 @@ const SignIn = () => {
     try {
       const res = await axios.post(
         "/api/auth/signup",
-        { name,email, password },
+        { name, email, password },
         { withCredentials: true }
       );
-      dispatch(loginSucces(res.data)) //--------------------we passed a payload here
-      navigate(`/`)
+      dispatch(loginSucces(res.data)); //--------------------we passed a payload here
+      navigate(`/`);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   };
 
@@ -53,6 +55,7 @@ const SignIn = () => {
     dispatch(loginStart());
     signInWithPopup(auth, provider)
       .then((result) => {
+        console.log(result.user.email)
         axios
           .post(
             "/api/auth/google",
@@ -61,9 +64,10 @@ const SignIn = () => {
               email: result.user.email,
               img: result.user.photoURL,
             },
-            { withCredentials: true }
+            // { withCredentials: true }
           )
           .then((res) => {
+            console.log(res.data)
             dispatch(loginSucces(res.data));
           });
       })
@@ -72,9 +76,12 @@ const SignIn = () => {
       });
   };
 
-  return (
+  return (<>
+    <div className="signgoogle">
+      <button className="buttongoogle" onClick={signInWithGoogle}> <GoogleIcon style={{backgroundColor:"transparent"}}/> Sign In with google</button>
+    </div>
     <div className="maincontent">
-      <div className="SignInContainer">
+      <div className="SignContainer">
         <h1>SignIn</h1>
         <div className="form">
           <input
@@ -93,9 +100,9 @@ const SignIn = () => {
           />
           <button onClick={handleLogin}>SignIn</button>
         </div>
-        <p>or</p>
-        <button onClick={signInWithGoogle}>SignIn with Google</button>
-        <p>or</p>
+      </div>
+
+      <div className="SignContainer">
         <h1>SignUp</h1>
         <div className="form">
           <input
@@ -113,7 +120,7 @@ const SignIn = () => {
             onChange={(e) => setName(e.target.value)}
           />
           <input
-            type="text"
+            type="password"
             name="password"
             id=""
             placeholder="Password"
@@ -122,7 +129,9 @@ const SignIn = () => {
           <button onClick={handleSignUp}>SignUp</button>
         </div>
       </div>
+      
     </div>
+    </>
   );
 };
 

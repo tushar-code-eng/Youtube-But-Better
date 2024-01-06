@@ -116,5 +116,9 @@
     gap: 10px;
     cursor: pointer;
     margin-right: 1em;
+    border-radius: 10px;
+  }
+  .signbtn:hover{
+    background-color: #404040;
   }
 }

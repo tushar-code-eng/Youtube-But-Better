@@ -10,7 +10,7 @@ import Search from "./components/pages/Search/Search.jsx";
 
 function App() {
 
-  const [openSidebar, setOpenSidebar] = useState(false)
+  const [openSidebar, setOpenSidebar] = useState(true)
 
   return (
     <>
