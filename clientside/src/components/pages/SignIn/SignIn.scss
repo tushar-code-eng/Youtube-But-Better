@@ -30,7 +30,12 @@
         align-items: center;
         // border:1px solid red;
         // border:1px solid red;
-        h1{
+        .h1signup{
+            margin: 0.6em;
+            margin-bottom: 2em;
+            color: rgb(213, 213, 213);
+        }
+        .h1signin{
             margin: 0.6em;
             margin-bottom: 5em;
             color: rgb(213, 213, 213);
@@ -69,6 +74,19 @@
                 background-color: rgb(255, 6, 6);
                 color: white;
             }
+        }
+        .dp{
+            img{
+                width: 60px;
+                height: 60px;
+            }
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit:contain;
+            overflow: hidden;
+            margin-bottom: 2em;
+            cursor: pointer;
         }
     }
 }

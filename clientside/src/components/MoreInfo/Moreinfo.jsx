@@ -4,12 +4,16 @@ import { useSelector, useDispatch } from "react-redux";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { logout } from "../../redux/userSlice";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Moreinfo = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
 
+  const navigate = useNavigate()
+
   const handleLogout = async () => {
+    navigate("/");
     dispatch(logout());
     try {
       const res = await axios.get(`/api/auth/signout`, {

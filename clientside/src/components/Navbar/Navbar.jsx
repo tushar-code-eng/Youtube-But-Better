@@ -67,7 +67,7 @@ const Navbar = ({openSidebar,setOpenSidebar}) => {
               }}
             >
               <div className="avatar">
-                <img src={currentUser.img} alt="" />
+                <img src={currentUser.img} alt="pic" />
               </div>
               <div className="username">{currentUser.name}</div>
             </div>

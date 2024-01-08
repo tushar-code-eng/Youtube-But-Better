@@ -8,13 +8,19 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 export const UserSignup = async (req, res, next) => {
+    const {name,email,password,senddp} = req.body
     try {
         const salt = bcrypt.genSaltSync(10)
-        const hash = bcrypt.hashSync(req.body.password, salt)
-        const newUser = new User({ ...req.body, password: hash })
-
-        await newUser.save()
-        res.status(200).send("User has been created")
+        const hash = bcrypt.hashSync(req.body.password, salt)  
+        const newUser = new User({ name,email,password: hash,img:senddp })
+        
+        const savedUser = await newUser.save()
+        const token = jwt.sign({ id: savedUser._id }, process.env.JWTKEY)
+        console.log(savedUser)
+        const { password, ...other } = savedUser._doc
+        res.cookie("access_token", token, {
+            httpOnly: true,
+        }).status(200).json(other)
     } catch (err) {
         next(err)
     }
@@ -47,7 +53,7 @@ export const googleAuth = async (req, res, next) => {
     try {
         const user = await User.findOne({ email: req.body.email })
         if (user) {
-            const token = jwt.sign({ id: savedUser._id }, process.env.JWTKEY)
+            const token = jwt.sign({ id: user._id }, process.env.JWTKEY)
 
             res.cookie("access_token", token, {
                 httpOnly: true,

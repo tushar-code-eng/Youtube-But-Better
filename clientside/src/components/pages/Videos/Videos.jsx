@@ -20,8 +20,8 @@ import { fetchSuccess } from "../../../redux/videoSlice.js";
 import Recomendations from "../../Recomendations/Recomendations.jsx";
 
 const Videos = ({openSidebar, setOpenSidebar}) => {
-  const currentUser = useSelector((state) => state.user.currentUser);
-  const currentVideo = useSelector((state) => state.video.currentVideo);
+  const {currentUser} = useSelector((state) => state.user);
+  const {currentVideo} = useSelector((state) => state.video);
 
   const dispatch = useDispatch();
 
