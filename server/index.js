@@ -28,8 +28,6 @@ app.use(cookieParser())
 
 
 
-
-
 app.use("/api/users", UserRoutes)
 app.use("/api/videos", VideoRoutes)
 app.use("/api/comments", CommentRoutes)

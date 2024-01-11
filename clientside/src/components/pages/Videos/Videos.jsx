@@ -21,7 +21,8 @@ import Recomendations from "../../Recomendations/Recomendations.jsx";
 
 const Videos = ({openSidebar, setOpenSidebar}) => {
   const {currentUser} = useSelector((state) => state.user);
-  const {currentVideo} = useSelector((state) => state.video);
+  const currentVideos = useSelector((state) => state.video);
+  const currentVideo = currentVideos.currentVideo
 
   const dispatch = useDispatch();
 
@@ -88,7 +89,7 @@ const Videos = ({openSidebar, setOpenSidebar}) => {
           <h2 className="videoTitle">{currentVideo.title}</h2>
           <div className="desc">
             <p className="videoViews">
-              {currentVideo.views} | {format(currentVideo.createAt)}
+              {currentVideo.views} | {format(currentVideo.createdAt)} 
             </p>
             <div
               style={{

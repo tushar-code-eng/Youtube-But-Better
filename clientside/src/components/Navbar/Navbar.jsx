@@ -71,7 +71,7 @@ const Navbar = ({openSidebar,setOpenSidebar}) => {
               </div>
               <div className="username">{currentUser.name}</div>
             </div>
-            {moreinfo && <Moreinfo />}
+            {moreinfo && <Moreinfo setMoreinfo={setMoreinfo}/>}
           </div>
         ) : (
           <Link to="signin" style={{ textDecoration: "none" }}>

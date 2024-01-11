@@ -27,7 +27,7 @@ const Comment = ({comments}) => {
       <img src={channel.img} alt="" />
       <div className="CommentText">
         <span className="name">{channel.name}</span>
-        <span className="date">{format(channel.createdAt)}</span>
+        <span className="date">{format(comments.createdAt)}</span>
         <p className="CommentBody">
           {comments.desc}
         </p>

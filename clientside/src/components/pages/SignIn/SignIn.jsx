@@ -79,6 +79,7 @@ const SignIn = () => {
               { withCredentials: true }
             ).then((res) => {
               dispatch(loginSucces(res.data));
+              navigate(`/`);
             });
         }catch(err){
           console.log(err)
@@ -195,6 +196,7 @@ const SignIn = () => {
 
         <div className="SignContainer">
           <h1 className="h1signup">SignUp</h1>
+          <p>Upload Image</p>
           <div
             className="dp"
             onClick={() => {

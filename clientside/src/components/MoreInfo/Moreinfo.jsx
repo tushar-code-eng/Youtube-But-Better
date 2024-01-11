@@ -6,13 +6,14 @@ import { logout } from "../../redux/userSlice";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Moreinfo = () => {
+const Moreinfo = ({setMoreinfo}) => {
   const currentUser = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
 
   const navigate = useNavigate()
 
   const handleLogout = async () => {
+    setMoreinfo(false)
     navigate("/");
     dispatch(logout());
     try {

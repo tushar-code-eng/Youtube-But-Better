@@ -5,6 +5,7 @@ import User from "../models/User.js"
 export const addVideo = async (req, res, next) => {
     const newVideo = new Video({ userId: req.user.id, ...req.body })
     try {
+        console.log('hit')
         const savedVideo = await newVideo.save()
         res.status(200).json(savedVideo)
     } catch (err) {
@@ -74,8 +75,8 @@ export const addView = async (req, res, next) => {
 export const random = async (req, res, next) => {
     try {
         const randomvid = await Video.aggregate([{ $sample: { size: 40 } }])
-
         res.status(200).json(randomvid)
+
     } catch (err) {
         next(err)
     }
