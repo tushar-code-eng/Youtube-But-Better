@@ -6,7 +6,7 @@ dotenv.config()
 
 export const verifytoken =async  (req,res,next)=>{
     const token =await req.cookies.access_token
-    if(!token) return next(createError(401,"User not Authenticated"))
+    if(!token) return res.status(401).json("SignIn to Continue")
 
     jwt.verify(token,process.env.JWTKEY,(err,user)=>{
         if(err) return next(createError(403,"Token not valid"))

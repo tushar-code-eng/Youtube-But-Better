@@ -1,12 +1,31 @@
+.modal{
+  position: absolute;
+  top: 11%;
+  right: 1%;
+  background-color: transparent;
+  border: none;
+  h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 400px;
+    height: 100px;
+    background-color: rgb(51, 169, 51);
+    color: rgb(216, 216, 216);
+    border: none;
+  }
+}
+
 .sidebarr {
-  width: 250px;
+  width: 400px;
   height: 100vh;
   background-color: #161515;
   display: flex;
   flex-direction: column;
   align-items: left;
+  left: 0;
   position: sticky;
-  top: 0;
   gap: 6px;
 
   .items {
@@ -29,7 +48,7 @@
   }
 
   .divider {
-    width: 180px;
+    width: 80%;
     margin: 13px 0em;
     border: 0.5px solid #373737;
     margin-left: 1em;

@@ -15,6 +15,7 @@ const CardsSM = ({video}) => {
       const fetchChannel = async () => {
         const res = await axios.get(`http://localhost:3000/api/users/find/${video.userId}`);
         setChannel(res.data);
+        console.log(res)
       };
       fetchChannel();
     } catch (err) {
@@ -25,7 +26,11 @@ const CardsSM = ({video}) => {
   return (
     <Link to={`/video/${video._id}`} style={{textDecoration:"none"}}>
       <div className="cardsContainerSM">
-        <img className="thumbnailImgSM" src={video.imgUrl} alt="" />
+      {video.imgUrl ? (
+            <img className="thumbnailImgSM" src={video.imgUrl} alt="" />
+          ) : (
+            <video className="thumbnailImgSM" src={video.videoUrl} ></video>
+          )}
         <div className="detailsSM">
           <div className="textsSM">
             <h1 className="titleSM"> {video.title} </h1>

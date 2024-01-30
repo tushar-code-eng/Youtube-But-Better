@@ -11,7 +11,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 
-import SensorOccupiedIcon from "@mui/icons-material/SensorOccupied";
+import GoogleSignIn from "../googleSignin/GoogleSignIn.jsx"
+
+
 
 const Navbar = ({openSidebar,setOpenSidebar}) => {
   const navigate = useNavigate();
@@ -74,12 +76,9 @@ const Navbar = ({openSidebar,setOpenSidebar}) => {
             {moreinfo && <Moreinfo setMoreinfo={setMoreinfo}/>}
           </div>
         ) : (
-          <Link to="signin" style={{ textDecoration: "none" }}>
-            <button className="signbtn">
-              {" "}
-              <SensorOccupiedIcon style={{backgroundColor:"transparent"}}/> SignIn
-            </button>
-          </Link>
+          
+            <GoogleSignIn />
+          
         )}
       </div>
       {open && <Uploadvideos setOpen={setOpen} />}

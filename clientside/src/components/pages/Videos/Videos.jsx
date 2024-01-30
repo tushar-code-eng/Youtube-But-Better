@@ -23,17 +23,22 @@ const Videos = ({openSidebar, setOpenSidebar}) => {
   const {currentUser} = useSelector((state) => state.user);
   const currentVideos = useSelector((state) => state.video);
   const currentVideo = currentVideos.currentVideo
+  // console.log(currentVideo)
 
   const dispatch = useDispatch();
 
   const path = useLocation().pathname.split("/")[2];
 
   const [channel, SetChannel] = useState({});
+  const [thumbnail,setThumbnail] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const videoRes = await axios.get(`/api/videos/find/${path}`, {
+          withCredentials: true,
+        });
+        const viewsRes = await axios.put(`/api/videos/view/${path}`, {
           withCredentials: true,
         });
         const channelRes = await axios.get(
@@ -42,9 +47,9 @@ const Videos = ({openSidebar, setOpenSidebar}) => {
             withCredentials: true,
           }
         );
-
-        SetChannel(channelRes.data);
         dispatch(fetchSuccess(videoRes.data));
+        
+        SetChannel(channelRes.data);
       } catch (err) {
         console.log(err);
       }
@@ -83,13 +88,13 @@ const Videos = ({openSidebar, setOpenSidebar}) => {
     <div className={ openSidebar ? 'videoContainer' : 'videoContainerChange'}>
       <div className="content">
         <div className="videoWrapper">
-          <video src={currentVideo.videoUrl} controls></video>
+          <video src={currentVideo.videoUrl} controls autoPlay style={{outlineStyle:"none"}}></video>
         </div>
         <div className="title">
           <h2 className="videoTitle">{currentVideo.title}</h2>
           <div className="desc">
             <p className="videoViews">
-              {currentVideo.views} | {format(currentVideo.createdAt)} 
+              {currentVideo.views} views | {format(currentVideo.createdAt)} 
             </p>
             <div
               style={{

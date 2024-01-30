@@ -8,7 +8,7 @@ const Recomendations = ({ tags }) => {
   useEffect(() => {
     const fecthVideo = async () => {
       try {
-        const res = await axios.get(`/api/videos/tags?tags=${tags}`, {
+        const res = await axios.get(`/api/videos/random`, {
           withCredentials: true,
         });
         setVideos(res.data);

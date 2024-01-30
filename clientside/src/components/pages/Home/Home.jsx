@@ -10,11 +10,7 @@ const Home = ({ type }) => {
 
   const [videos, setVideos] = useState([]);
   const {currentUser} = useSelector((state) => state.user);
-  console.log(currentUser)
-
-  if(!currentUser){
-    navigate(`/signin`)
-  }
+  const [error,setError] = useState("")
 
   useEffect(() => {
     try {
@@ -26,14 +22,14 @@ const Home = ({ type }) => {
       };
       fetchVideos();
     } catch (err) {
-      console.log("Error: ", err);
+      
     }
   }, [type]);
 
   return (
      <div className="mainContainer">
       {videos.map((video) => (
-        <Cards key={video._id} video={video} />
+        <Cards  key={video._id} video={video} />
       ))}
     </div>
   );
