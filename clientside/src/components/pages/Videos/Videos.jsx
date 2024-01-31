@@ -18,12 +18,13 @@ import ReplyIcon from "@mui/icons-material/Reply";
 import { useLocation } from "react-router-dom";
 import { fetchSuccess } from "../../../redux/videoSlice.js";
 import Recomendations from "../../Recomendations/Recomendations.jsx";
+import SignInError from "../../SignInError/SignInError.jsx";
 
 const Videos = ({openSidebar, setOpenSidebar}) => {
   const {currentUser} = useSelector((state) => state.user);
   const currentVideos = useSelector((state) => state.video);
   const currentVideo = currentVideos.currentVideo
-  // console.log(currentVideo)
+  console.log(currentVideo)
 
   const dispatch = useDispatch();
 
@@ -84,8 +85,8 @@ const Videos = ({openSidebar, setOpenSidebar}) => {
     dispatch(subscribtion(channel._id));
   };
 
-  return (
-    <div className={ openSidebar ? 'videoContainer' : 'videoContainerChange'}>
+  return (  
+    !currentUser? <SignInError />: <div className={ openSidebar ? 'videoContainer' : 'videoContainerChange'}>
       <div className="content">
         <div className="videoWrapper">
           <video src={currentVideo.videoUrl} controls autoPlay style={{outlineStyle:"none"}}></video>
@@ -157,7 +158,7 @@ const Videos = ({openSidebar, setOpenSidebar}) => {
       </div>
       <Recomendations tags = {currentVideo.tags } />
     </div>
-  );
+  )
 };
 
 export default Videos;

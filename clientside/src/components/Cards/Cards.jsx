@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState} from "react";
 import "./Cards.scss";
 // import thumbnail from "../photos/no-image.jpg";
 // import channel from "../photos/channelImg.jpg";
@@ -7,7 +7,6 @@ import { format } from "timeago.js";
 import axios from "axios";
 
 const Cards = ({ video }) => {
-  const ref = useRef(null);
 
   const [channel, setChannel] = useState([]);
 
@@ -30,8 +29,8 @@ const Cards = ({ video }) => {
       to={`/video/${video._id}`}
       style={{ textDecoration: "none" }}
     >
-      <div className="cardsContainer">
-        <div className="imageContainer">
+      <div className="cardsContainer" >
+        <div className="imageContainer" >
           {video.imgUrl ? (
             <img className="thumbnailImg" src={video.imgUrl} alt="" />
           ) : (
