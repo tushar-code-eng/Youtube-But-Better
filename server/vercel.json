@@ -1,7 +1,6 @@
 {
   "version": 2,
-  "name":"youtube",
-  "builds": [{ "src": "*.js", "use": "@vercel/node" }],
+  "builds": [{ "src": "*.jsx", "use": "@vercel/node" }],
   "routes": [
     {
       "src": "/(.*)",
