@@ -13,7 +13,13 @@ dotenv.config()
 const app = express()
 const port = 3000
 
-app.use(cors())
+app.use(cors(
+  {
+    origin:[""],
+    methods:["POST","GET"],
+    credentials:true
+  }
+))
 
 //Connection to MongoDB
 mongoose.connect(process.env.MONGO)
