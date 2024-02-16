@@ -24,7 +24,7 @@ const Videos = ({openSidebar, setOpenSidebar}) => {
   const {currentUser} = useSelector((state) => state.user);
   const currentVideos = useSelector((state) => state.video);
   const currentVideo = currentVideos.currentVideo
-  console.log(currentVideo)
+    // console.log(currentVideo)
 
   const dispatch = useDispatch();
 

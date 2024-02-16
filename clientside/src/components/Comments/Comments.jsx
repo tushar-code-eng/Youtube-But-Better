@@ -1,6 +1,6 @@
 import React, { useState, useEffect,useRef } from "react";
 import "./Comments.scss";
-import avatar from "../photos/channelImg.jpg";
+// import avatar from "../photos/channelImg.jpg";
 import Comment from "./Comment";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -39,7 +39,7 @@ const Comments = ({ videoId }) => {
   return (
     <>
       <div className="Commentsscontainer">
-        <div className="NumberOfComments">9,732 Comments</div>
+        <div className="NumberOfComments">{comments.length} Comments</div>
         <div className="NewComment">
           <img src={currentUser.img} alt="" />
           <input
